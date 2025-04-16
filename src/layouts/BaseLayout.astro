@@ -1,0 +1,20 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+const { title = "AirClip" } = Astro.props;
+---
+
+<html lang="es" class="bg-gradient-to-b from-[#001125] to-[#006d7c]">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/assets/airclip_icon_white.png" />
+  </head>
+  <body class="text-white font-sans scroll-smooth min-h-screen">
+    <Navbar />
+    <slot />
+    <Footer />
+  </body>
+</html>
