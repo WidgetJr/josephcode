@@ -9,9 +9,23 @@ window.submitFeedback = async function (e) {
 
   const { error } = await supabase.from("feedback").insert([{ name, email, message }]);
   if (error) {
-    alert("Error submitting feedback");
+    showToast("Something went wrong. Try again.");
   } else {
-    alert("Thank you for your feedback!");
+    showToast("Thank you for your feedback!");
     form.reset();
   }
 };
+
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.remove("opacity-0");
+  toast.classList.add("opacity-100");
+
+  setTimeout(() => {
+    toast.classList.remove("opacity-100");
+    toast.classList.add("opacity-0");
+  }, 3000);
+}
+
