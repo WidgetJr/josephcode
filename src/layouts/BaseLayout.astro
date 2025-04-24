@@ -1,26 +1,28 @@
 ---
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
-const { title = "AirClip" } = Astro.props;
+const { title = "Joseph Code" } = Astro.props;
 ---
 
-<html lang="es" class="bg-gradient-to-b from-[#001125] to-[#006d7c]">
+<html lang="es" class="bg-[#000c0f]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <link rel="icon" type="image/png" href="/assets/airclip_icon_white.png" />
+    <!-- <link rel="icon" type="image/png" href="/assets/airclip_icon_white.png" /> -->
   </head>
-  <body class="text-white font-sans scroll-smooth min-h-screen">
+  <body class="text-white font-sans scroll-smooth min-h-screen relative">
+    <!-- Halo background effect replicating "VISION FOR THE FUTURE" -->
+    <div class="fixed inset-0 -z-10 bg-[#000c0f]">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div
+          class="w-[600px] h-[600px] bg-[radial-gradient(circle,#00ffd5_0%,#003b3e_40%,#000c0f_75%)] rounded-full blur-[120px] opacity-70"
+        >
+        </div>
+      </div>
+    </div>
+
     <Navbar />
     <slot />
-    <Footer />
-    <div
-      id="toast"
-      class="fixed bottom-6 right-6 bg-gradient-to-r from-[#00bcd4] to-[#14e0c9] text-white font-semibold px-4 py-2 rounded-lg shadow-lg opacity-0 transition duration-300 z-50"
-    >
-      Thank you for your feedback!
-    </div>
   </body>
 </html>

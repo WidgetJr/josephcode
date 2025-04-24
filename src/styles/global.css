@@ -37,3 +37,35 @@ html {
       animation: fade-in-up 0.8s ease-out both;
     }
   }
+
+  @layer utilities {
+    @keyframes growDown {
+      0% {
+        transform: scaleY(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+  
+    .animate-growDown {
+      animation: growDown 0.5s ease-out forwards;
+      transform-origin: top center;
+    }
+  }
+   
+
+.project-card {
+  @apply bg-white/5 border border-green-400/30 backdrop-blur-md rounded-xl p-6 shadow-lg hover:scale-[1.02] transition;
+}
+.project-title {
+  @apply text-xl font-semibold text-green-400 mb-2;
+}
+.project-desc {
+  @apply text-sm text-gray-300 mb-4;
+}
+.tech-chip {
+  @apply flex items-center gap-2 bg-white text-black text-xs px-3 py-1 rounded-full shadow hover:scale-105 hover:text-[#004b45] transition-transform duration-300 font-medium;
+}
