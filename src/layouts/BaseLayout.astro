@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar.astro";
 const { title = "Joseph Code" } = Astro.props;
 ---
 
-<html lang="es" class="bg-[#000c0f]">
+<html lang="es" class="bg-black">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,13 +12,16 @@ const { title = "Joseph Code" } = Astro.props;
     <!-- <link rel="icon" type="image/png" href="/assets/airclip_icon_white.png" /> -->
   </head>
   <body class="text-white font-sans scroll-smooth min-h-screen relative">
-    <!-- Halo background effect replicating "VISION FOR THE FUTURE" -->
-    <div class="fixed inset-0 -z-10 bg-[#000c0f]">
+    <!-- Halo background effect with subtle purple and pink -->
+    <div class="fixed inset-0 -z-10 bg-black">
       <div class="absolute inset-0 flex items-center justify-center">
         <div
-          class="w-[600px] h-[600px] bg-[radial-gradient(circle,#00ffd5_0%,#003b3e_40%,#000c0f_75%)] rounded-full blur-[120px] opacity-70"
+          class="w-[600px] h-[600px] bg-[radial-gradient(circle,#9333ea_0%,#7c3aed_40%,#000000_75%)] rounded-full blur-[120px] opacity-40"
         >
         </div>
+      </div>
+      <!-- Additional pink accent -->
+      <div class="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,#ec4899_0%,#be185d_30%,transparent_70%)] rounded-full blur-[80px] opacity-30">
       </div>
     </div>
 

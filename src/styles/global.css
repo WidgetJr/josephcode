@@ -58,14 +58,17 @@ html {
    
 
 .project-card {
-  @apply bg-white/5 border border-green-400/30 backdrop-blur-md rounded-xl p-6 shadow-lg hover:scale-[1.02] transition;
+  @apply bg-white/5 border border-purple-400/30 backdrop-blur-md rounded-xl p-6 shadow-lg hover:scale-[1.02] transition;
+  box-shadow: 0 0 10px rgba(147, 51, 234, 0.15);
 }
 .project-title {
-  @apply text-xl font-semibold text-green-400 mb-2;
+  @apply text-xl font-semibold text-purple-400 mb-2;
+  text-shadow: 0 0 5px rgba(147, 51, 234, 0.4);
 }
 .project-desc {
   @apply text-sm text-gray-300 mb-4;
 }
 .tech-chip {
-  @apply flex items-center gap-2 bg-white text-black text-xs px-3 py-1 rounded-full shadow hover:scale-105 hover:text-[#004b45] transition-transform duration-300 font-medium;
+  @apply flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs px-3 py-1 rounded-full shadow hover:scale-105 transition-transform duration-300 font-medium;
+  box-shadow: 0 0 8px rgba(147, 51, 234, 0.2);
 }
