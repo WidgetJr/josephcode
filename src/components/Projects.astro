@@ -1,180 +1,103 @@
-<section
-  id="projects"
-  class="scroll-mt-28 w-full px-6 py-20 text-white text-center"
->
-  <h2 class="text-3xl font-bold mb-10">Projects</h2>
-
-  <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
-  >
-    <!-- 🔹 AirClip -->
-    <div class="project-card">
-      <img
-        src="assets/images/airclip-app.png"
-        alt="AirClip App Preview"
-        class="rounded-xl w-full h-72 object-cover object-top mb-4"
-      />
-      <h3 class="project-title">AirClip</h3>
-      <p class="project-desc">
-        Synchronizes your clipboard and images across devices using Flutter and
-        Supabase, just by logging into the same account.
-      </p>
-      <div class="flex flex-wrap justify-center gap-2">
-        <div class="tech-chip">
-          <img src="assets/techStackIcons/flutter.svg" class="w-4 h-4" /><span
-            >Flutter</span
-          >
-        </div>
-        <div class="tech-chip">
-          <img src="assets/techStackIcons/supabase.svg" class="w-4 h-4" /><span
-            >Supabase</span
-          >
-        </div>
-      </div>
+---
+const projects = [
+  {
+    name: "Smart Energy",
+    primary: true,
+    image: null,
+    alt: "",
+    description: "Full-stack energy monitoring platform designed to capture, manage, and visualize electrical consumption data through a web application, REST API, PostgreSQL database, and ESP32 integration.",
+    stack: [".NET", "C#", "REST APIs", "PostgreSQL", "React / TypeScript", "ESP32", "Render", "Vercel"],
+    actions: [
+      ["Frontend ↗", "https://github.com/WidgetJr/smartenergy-web"],
+      ["Backend ↗", "https://github.com/WidgetJr/smartenergy-api"],
+      ["View Demo ↗", "https://smartenergy-web.vercel.app"]
+    ]
+  },
+  {
+    name: "AirClip",
+    primary: false,
+    image: "airclip-web.png",
+    alt: "AirClip website preview",
+    description: "Synchronizes clipboard text and images across devices through a shared account.",
+    stack: ["Flutter", "Supabase"],
+    actions: [
+      ["Application Repository ↗", "https://github.com/WidgetJr/AirClip"],
+      ["Web Repository ↗", "https://github.com/WidgetJr/airclip-web"],
+      ["View Demo ↗", "https://airclip-web.vercel.app"]
+    ]
+  },
+  {
+    name: "TaskClip",
+    primary: false,
+    image: "taskclip.png",
+    alt: "TaskClip command-line application preview",
+    description: "Command-line task management application built with C# and .NET that allows users to create, list, update, and manage task status directly from the terminal.",
+    stack: ["C#", ".NET", "CLI"],
+    actions: [["View Code ↗", "https://github.com/WidgetJr/TaskClip"]]
+  }
+];
+---
+<section id="projects" class="section">
+  <div class="shell">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Selected work</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-copy">A focused selection of backend, web, database, cloud, and software engineering work.</p>
     </div>
-
-    <!-- 🔹 AirClip Web -->
-    <div class="project-card">
-      <img
-        src="assets/images/airclip-web.png"
-        alt="AirClip Web Preview"
-        class="rounded-xl w-full h-48 object-cover mb-4"
-      />
-      <h3 class="project-title">AirClip Web</h3>
-      <p class="project-desc">
-        Landing page to promote and download the AirClip app, built with Astro
-        and TailwindCSS.
-      </p>
-      <div class="flex flex-wrap justify-center gap-2">
-        <div class="tech-chip">
-          <img src="assets/techStackIcons/astro.svg" class="w-4 h-4" /><span
-            >Astro</span
-          >
-        </div>
-        <div class="tech-chip">
-          <img
-            src="assets/techStackIcons/tailwindcss.svg"
-            class="w-4 h-4"
-          /><span>TailwindCSS</span>
-        </div>
-        <div class="tech-chip">
-          <img src="assets/techStackIcons/supabase.svg" class="w-4 h-4" /><span
-            >Supabase</span
-          >
-        </div>
-      </div>
-    </div>
-
-    <!-- 🔹 My Day -->
-    <div class="project-card">
-      <img
-        src="assets/images/myday-app.png"
-        alt="My Day App Preview"
-        class="rounded-xl w-full h-80 object-contain mb-4"
-      />
-      <h3 class="project-title">My Day</h3>
-      <p class="project-desc">
-        Fast task management app with group organization and AI features. Built
-        in Flutter with Supabase.
-      </p>
-      <div class="flex flex-wrap justify-center gap-2">
-        <div class="tech-chip">
-          <img src="assets/techStackIcons/flutter.svg" class="w-4 h-4" />
-          <span>Flutter</span>
-        </div>
-        <div class="tech-chip">
-          <img src="assets/techStackIcons/supabase.svg" class="w-4 h-4" />
-          <span>Supabase</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🔹 PaizTech Web -->
-    <div class="project-card">
-      <img
-        src="assets/images/paiztech-web.png"
-        alt="AirClip Web Preview"
-        class="rounded-xl w-full h-48 object-cover mb-4"
-      />
-      <h3 class="project-title">PaizTech Web</h3>
-      <p class="project-desc">
-        Official website for PaizTech, featuring dev tools and utilities. Built
-        with Astro and TailwindCSS.
-      </p>
-      <div class="flex flex-wrap justify-center gap-2">
-        <div class="tech-chip">
-          <img src="assets/techStackIcons/astro.svg" class="w-4 h-4" /><span
-            >Astro</span
-          >
-        </div>
-        <div class="tech-chip">
-          <img
-            src="assets/techStackIcons/tailwindcss.svg"
-            class="w-4 h-4"
-          /><span>Tailwind</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🔹 TaskClip (CLI App) -->
-    <div class="project-card">
-      <img
-        src="assets/images/taskclip.png"
-        alt="AirClip Web Preview"
-        class="rounded-xl w-full h-48 object-cover mb-4"
-      />
-      <h3 class="project-title">TaskClip (CLI)</h3>
-      <p class="project-desc">
-        Practice CLI app for managing tasks using a local JSON file. Built with
-        .NET and C#.
-      </p>
-      <div class="flex flex-wrap justify-center gap-2">
-        <div class="tech-chip">
-          <img src="assets/techStackIcons/dotnet.svg" class="w-4 h-4" /><span
-            >.NET</span
-          >
-        </div>
-        <div class="tech-chip"><span>C#</span></div>
-        <div class="tech-chip">
-          <img src="assets/techStackIcons/json.svg" class="w-4 h-4" /><span
-            >JSON</span
-          >
-        </div>
-      </div>
-    </div>
-
-    <!-- 🔹 Task Management API -->
-    <div class="project-card">
-      <h3 class="project-title">Task Management API</h3>
-      <p class="project-desc">
-        A secure RESTful API with JWT authentication for task and project
-        management. Containerized with Docker.
-      </p>
-      <div class="flex flex-wrap justify-center gap-2">
-        <div class="tech-chip">
-          <img src="assets/techStackIcons/dotnet.svg" class="w-4 h-4" /><span
-            >.NET</span
-          >
-        </div>
-        <div class="tech-chip"><span>C#</span></div>
-        <div class="tech-chip">
-          <img
-            src="assets/techStackIcons/postgresql.svg"
-            class="w-4 h-4"
-          /><span>PostgreSQL</span>
-        </div>
-        <div class="tech-chip">
-          <img
-            src="assets/techStackIcons/jsonwebtokens.svg"
-            class="w-4 h-4"
-          /><span>JWT</span>
-        </div>
-        <div class="tech-chip">
-          <img src="assets/techStackIcons/docker.svg" class="w-4 h-4" /><span
-            >Docker</span
-          >
-        </div>
-      </div>
+    <div class="project-grid">
+      {projects.map((project) =>
+        <article class={`project glass reveal ${project.primary ? "project-primary" : ""}`}>
+          <div class={`project-preview ${!project.image ? "project-preview-placeholder" : ""}`}>
+            {project.image
+              ? <img src={`/assets/images/${project.image}`} alt={project.alt} width="960" height="540" loading="lazy" />
+              : <div aria-label="Smart Energy project preview"><span>Smart Energy</span><small>Web · API · Database · ESP32</small></div>}
+          </div>
+          <div class="project-content">
+            <div class="project-heading">
+              <div>
+                {project.primary && <span class="project-label">Featured project</span>}
+                <h3>{project.name}</h3>
+              </div>
+              <span class="project-index" aria-hidden="true">{project.primary ? "01" : project.name === "AirClip" ? "02" : "03"}</span>
+            </div>
+            <p class="project-description">{project.description}</p>
+            <div class="project-stack" aria-label={`${project.name} technologies`}>
+              {project.stack.map((technology) => <span class="chip">{technology}</span>)}
+            </div>
+            <div class="project-actions">
+              {project.actions.map(([label, url]) => <a href={url} target="_blank" rel="noopener noreferrer">{label}</a>)}
+            </div>
+          </div>
+        </article>
+      )}
     </div>
   </div>
 </section>
+<style>
+  .project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+  #projects { scroll-margin-top:110px; }
+  .project { display:flex; flex-direction:column; min-width:0; overflow:hidden; padding:8px; border-radius:var(--radius-md); transition:transform .25s ease,border-color .25s ease; }
+  .project:hover { transform:translateY(-4px); border-color:var(--border-bright); }
+  .project-primary { grid-column:1 / -1; display:grid; grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr); border-color:rgba(166,180,255,.16); }
+  .project-preview { width:100%; max-height:270px; aspect-ratio:16 / 9; overflow:hidden; border:1px solid rgba(255,255,255,.06); border-radius:15px; background:#0b0e14; }
+  .project-preview img { display:block; width:100%; height:100%; object-fit:cover; object-position:top; }
+  .project-preview-placeholder { display:grid; place-items:center; background:radial-gradient(circle at 50% 45%,rgba(107,128,225,.14),transparent 52%),#0a0d14; }
+  .project-preview-placeholder div { display:grid; gap:5px; padding:20px; text-align:center; }
+  .project-preview-placeholder span { color:#c5cdec; font-size:.9rem; font-weight:650; letter-spacing:.04em; }
+  .project-preview-placeholder small { color:#77819d; font:500 .68rem/1.4 ui-monospace,SFMono-Regular,monospace; }
+  .project-content { display:flex; flex:1; flex-direction:column; min-width:0; padding:20px 18px 18px; }
+  .project-primary .project-content { justify-content:center; padding:clamp(22px,3vw,34px); }
+  .project-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:20px; }
+  .project-label { display:block; margin-bottom:8px; color:var(--accent); font-size:.65rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+  .project h3 { margin:0; font-size:1.25rem; line-height:1.3; }
+  .project-primary h3 { font-size:clamp(1.45rem,3vw,1.8rem); }
+  .project-index { color:#566079; font:600 .7rem/1 ui-monospace,SFMono-Regular,monospace; }
+  .project-description { max-width:850px; margin:14px 0 20px; color:var(--muted); font-size:.9rem; }
+  .project-stack { display:flex; flex-wrap:wrap; gap:7px; }
+  .project-stack .chip { padding:5px 9px; font-size:.7rem; }
+  .project-actions { display:flex; flex-wrap:wrap; gap:9px 18px; margin-top:auto; padding-top:24px; }
+  .project-actions a { color:#bdc7ff; font-size:.78rem; font-weight:600; text-decoration:none; }
+  .project-actions a:hover { color:white; }
+  @media (max-width:800px) { .project-primary { grid-template-columns:1fr; } }
+  @media (max-width:680px) { #projects { scroll-margin-top:90px; } .project-grid { grid-template-columns:1fr; } .project-primary { grid-column:auto; } .project-preview { max-height:240px; } .project-primary .project-content { padding:20px 18px 18px; } .project-actions a { padding-block:4px; } }
+</style>

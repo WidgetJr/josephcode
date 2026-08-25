@@ -1,0 +1,18 @@
+<section id="contact" class="section contact-section">
+  <div class="shell">
+    <div class="contact glass reveal">
+      <div><span class="eyebrow">Start a conversation</span><h2>Let’s build something useful.</h2><p>Have a technical challenge, a software project, or an opportunity where support and engineering overlap? Let’s talk.</p></div>
+      <div class="contact-actions"><a class="button button-primary" href="mailto:josephpaiz007@gmail.com">Email Joseph</a><a class="button" href="https://www.linkedin.com/in/joseph-paiz-matarrita-4a9073212/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="button" href="https://github.com/WidgetJr" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+    </div>
+  </div>
+</section>
+<style>
+  .contact-section { padding-bottom:50px; }
+  .contact { display:flex; align-items:center; justify-content:space-between; gap:48px; padding:clamp(28px,5vw,54px); border-radius:var(--radius-lg); overflow:hidden; }
+  .contact::after { content:""; position:absolute; right:-80px; bottom:-100px; width:280px; height:280px; border-radius:50%; background:rgba(91,112,220,.12); filter:blur(45px); pointer-events:none; }
+  .contact h2 { margin:8px 0 10px; font-size:clamp(2rem,4vw,3.2rem); line-height:1.08; letter-spacing:-.04em; }
+  .contact p { max-width:600px; margin:0; color:var(--muted); }
+  .contact-actions { position:relative; z-index:1; display:flex; flex-wrap:wrap; justify-content:flex-end; gap:10px; min-width:330px; }
+  @media (max-width:800px) { .contact { align-items:flex-start; flex-direction:column; } .contact-actions { justify-content:flex-start; min-width:0; } }
+  @media (max-width:440px) { .contact-actions { display:grid; width:100%; } }
+</style>

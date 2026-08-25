@@ -1,54 +1,60 @@
-<nav
-  class="animate-growDown fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-7xl h-20 z-50 flex items-center justify-between px-6 bg-black/80 backdrop-blur-md text-white border border-purple-500/30 rounded-2xl shadow-lg"
-  style="box-shadow: 0 0 15px rgba(147, 51, 234, 0.15);"
->
-  <a href="/" class="flex items-center space-x">
-    <div class="flex items-center space-x-1">
-      <span class="text-xl font-bold text-white" style="text-shadow: 0 0 5px rgba(236, 72, 153, 0.4);">Joseph Paiz</span>
+---
+const links = [
+  ["hero", "Home"], ["profile", "Profile"], ["tech-stack", "Tech Stack"],
+  ["experience", "Experience"], ["projects", "Projects"], ["education", "Education"], ["contact", "Contact"]
+];
+---
+<header class="nav-wrap" data-nav>
+  <nav class="nav glass" aria-label="Primary navigation">
+    <a href="#hero" class="brand" aria-label="Joseph Paiz, home"><span class="brand-mark">JP</span><span>Joseph Paiz</span></a>
+    <ul class="desktop-links">
+      {links.map(([id, label]) => <li><a class="nav-link" data-nav-link href={`#${id}`}>{label}</a></li>)}
+    </ul>
+    <button class="menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-button>
+      <span></span><span></span>
+    </button>
+    <div id="mobile-menu" class="mobile-menu glass" data-mobile-menu hidden>
+      {links.map(([id, label]) => <a class="nav-link" data-nav-link href={`#${id}`}>{label}</a>)}
     </div>
-  </a>
-
-  <!-- Navigation Links -->
-  <ul class="hidden md:flex space-x-6 text-sm font-medium tracking-wide">
-    <li>
-      <a
-        href="#hero"
-        class="px-3 py-1 rounded-md transition duration-200 hover:bg-purple-500/20 hover:text-pink-400"
-      >
-        Home
-      </a>
-    </li>
-    <li>
-      <a
-        href="#tech-stack"
-        class="px-3 py-1 rounded-md transition duration-200 hover:bg-purple-500/20 hover:text-pink-400"
-      >
-        Tech Stack
-      </a>
-    </li>
-    <li>
-      <a
-        href="#experience"
-        class="px-3 py-1 rounded-md transition duration-200 hover:bg-purple-500/20 hover:text-pink-400"
-      >
-        Experience
-      </a>
-    </li>
-    <li>
-      <a
-        href="#projects"
-        class="px-3 py-1 rounded-md transition duration-200 hover:bg-purple-500/20 hover:text-pink-400"
-      >
-        Projects
-      </a>
-    </li>
-    <li>
-      <a
-        href="#education"
-        class="px-3 py-1 rounded-md transition duration-200 hover:bg-purple-500/20 hover:text-pink-400"
-      >
-        Education
-      </a>
-    </li>
-  </ul>
-</nav>
+  </nav>
+</header>
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const nav = document.querySelector("[data-nav]");
+    const menuButton = document.querySelector("[data-menu-button]");
+    const menu = document.querySelector("[data-mobile-menu]");
+    const links = document.querySelectorAll("[data-nav-link]");
+    const closeMenu = () => { if (!menu || !menuButton) return; menu.hidden = true; menuButton.setAttribute("aria-expanded", "false"); menuButton.setAttribute("aria-label", "Open navigation menu"); };
+    menuButton?.addEventListener("click", () => { const open = menuButton.getAttribute("aria-expanded") === "true"; menu.hidden = open; menuButton.setAttribute("aria-expanded", String(!open)); menuButton.setAttribute("aria-label", open ? "Open navigation menu" : "Close navigation menu"); });
+    links.forEach((link) => link.addEventListener("click", closeMenu));
+    window.addEventListener("scroll", () => nav?.classList.toggle("is-scrolled", window.scrollY > 24), { passive: true });
+    if ("IntersectionObserver" in window) {
+      const sections = document.querySelectorAll("main section[id]");
+      const sectionObserver = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { links.forEach((link) => { const active = link.getAttribute("href") === `#${entry.target.id}`; link.classList.toggle("is-active", active); if (active) link.setAttribute("aria-current", "location"); else link.removeAttribute("aria-current"); }); } }), { rootMargin: "-30% 0px -60%", threshold: 0 });
+      sections.forEach((section) => sectionObserver.observe(section));
+    }
+  });
+</script>
+<style>
+  .nav-wrap { position:fixed; inset:16px 0 auto; z-index:50; padding:0 20px; }
+  .nav { display:flex; align-items:center; justify-content:space-between; width:min(1120px,100%); min-height:62px; margin:auto; padding:8px 12px 8px 18px; border-radius:18px; transition:background .25s ease,box-shadow .25s ease; }
+  .is-scrolled .nav { background:rgba(10,13,20,.86); box-shadow:0 16px 44px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.08); }
+  .brand { display:flex; align-items:center; gap:10px; color:var(--text); font-weight:700; font-size:.93rem; text-decoration:none; white-space:nowrap; }
+  .brand-mark { display:grid; place-items:center; width:32px; height:32px; border:1px solid rgba(151,166,255,.32); border-radius:10px; color:#cdd4ff; background:rgba(119,137,242,.1); font-size:.72rem; letter-spacing:.04em; }
+  .desktop-links { display:flex; gap:2px; margin:0; padding:0; list-style:none; }
+  .nav-link { display:block; padding:8px 10px; border-radius:9px; color:#aeb7c7; font-size:.76rem; font-weight:550; text-decoration:none; transition:color .2s,background .2s; }
+  .nav-link:hover,.nav-link.is-active { color:#f6f7fb; background:rgba(139,156,255,.1); }
+  .nav-link.is-active { box-shadow:inset 0 0 0 1px rgba(139,156,255,.12); }
+  .menu-button,.mobile-menu { display:none; }
+  @media (max-width:900px) {
+    .desktop-links { display:none; }
+    .menu-button { display:grid; gap:6px; width:42px; height:42px; place-content:center; border:0; border-radius:11px; color:white; background:transparent; cursor:pointer; }
+    .menu-button span { display:block; width:20px; height:1.5px; background:currentColor; transition:transform .2s; }
+    .menu-button[aria-expanded="true"] span:first-child { transform:translateY(3.75px) rotate(45deg); }
+    .menu-button[aria-expanded="true"] span:last-child { transform:translateY(-3.75px) rotate(-45deg); }
+    .mobile-menu { position:absolute; display:grid; inset:72px 20px auto; padding:10px; border-radius:16px; background:rgba(10,13,20,.94); }
+    .mobile-menu[hidden] { display:none; }
+    .mobile-menu .nav-link { padding:11px 12px; font-size:.9rem; }
+  }
+  @media (max-width:480px) { .nav-wrap { inset:10px 0 auto; padding:0 10px; } .nav { min-height:58px; } }
+</style>
